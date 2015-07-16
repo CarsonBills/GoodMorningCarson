@@ -3,6 +3,11 @@ html
 	head
 		title!= title
 		script(type="text/javascript", src="lib/jquery-2.1.4.js")
+		script(type="text/javascript", src="lib/scripts.js")
+		script.
+			$(document).ready(function(){
+				$(".poem").html("<p>jquery working</p>");
+			});
 	body
 		h1!= message
 		.poem
