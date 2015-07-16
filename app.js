@@ -13,6 +13,7 @@ app.get("/poem", function(req, res){
 		if (!error && response.statusCode === 200) {
 			var authors = JSON.parse(body).authors
 			res.locals = {authors: authors};
+			res.render("poem.ejs");
 		}
 	});
 });
