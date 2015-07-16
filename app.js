@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require("body-parser");
 var app = express();
+var today = new Date()
 
 
 app.get("/", function(req, res){
@@ -19,15 +20,10 @@ app.get("/poem", function(req, res){
 					var poem = poemList[Math.floor(Math.random() * poemList.length)];
 					var title = poem.title
 					var lines = poem.lines
-					console.log(poemList.length)
-					// console.log( author + title + lines)
 					res.locals = {author: author, title: title, lines: lines};
 					res.render("poem.ejs");
 				}
 			});
-
-
-			
 		}
 	});
 });
