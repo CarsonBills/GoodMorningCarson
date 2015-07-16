@@ -4,9 +4,11 @@ var bodyParser = require("body-parser");
 var app = express();
 var today = new Date()
 
+app.set('view engine', 'jade');
+
 
 app.get("/", function(req, res){
-	res.render("index.ejs");
+	res.render("index", {title: "Good Morning Carson", message: "Good Morning Carson."});
 });
 
 app.get("/poem", function(req, res){
@@ -21,7 +23,7 @@ app.get("/poem", function(req, res){
 					var title = poem.title
 					var lines = poem.lines
 					res.locals = {author: author, title: title, lines: lines};
-					res.render("poem.ejs");
+					// res.render("poem.ejs");
 				}
 			});
 		}
