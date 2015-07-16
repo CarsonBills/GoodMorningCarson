@@ -32,5 +32,8 @@ app.get("/poem", function(req, res){
 	});
 });
 
+app.get("/weather", function(req, res){
+	
+})
 
 app.listen(8080);
