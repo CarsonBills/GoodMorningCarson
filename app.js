@@ -9,12 +9,25 @@ app.get("/", function(req, res){
 });
 
 app.get("/poem", function(req, res){
-	request("http://poetrydb.org/author", function (error, response, body){
-		if (!error && response.statusCode === 200) {
-			var authors = JSON.parse(body).authors
+	request("http://poetrydb.org/author", function (error, authorResponse, authorBody){
+		if (!error && authorResponse.statusCode === 200) {
+			var authors = JSON.parse(authorBody).authors
 			var author = authors[Math.floor(Math.random() * authors.length)];
-			res.locals = {author: author};
-			res.render("poem.ejs");
+			request("http://poetrydb.org/author/" + author, function(error, poemResponse, poemBody){
+				if (!error && poemResponse.statusCode === 200) {
+					var poemList = JSON.parse(poemBody)
+					var poem = poemList[Math.floor(Math.random() * poemList.length)];
+					var title = poem.title
+					var lines = poem.lines
+					console.log(poemList.length)
+					// console.log( author + title + lines)
+					res.locals = {author: author, title: title, lines: lines};
+					res.render("poem.ejs");
+				}
+			});
+
+
+			
 		}
 	});
 });
