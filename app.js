@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var app = express();
 var today = new Date()
 
+app.use(express.static(__dirname + '/public'));
+
 app.set('view engine', 'jade');
 
 

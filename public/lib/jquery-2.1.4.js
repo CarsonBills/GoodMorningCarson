@@ -12,8 +12,6 @@
  * Date: 2015-04-28T16:01Z
  */
 
- console.log("Jquery loaded!")
-
 (function( global, factory ) {
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
