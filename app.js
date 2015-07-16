@@ -22,10 +22,10 @@ app.get("/poem", function(req, res){
 				if (!error && poemResponse.statusCode === 200) {
 					var poemList = JSON.parse(poemBody)
 					var poem = poemList[Math.floor(Math.random() * poemList.length)];
-					var title = poem.title
+					var poemTitle = poem.title
 					var lines = poem.lines
-					res.locals = {author: author, title: title, lines: lines};
-					// res.render("poem.ejs");
+					var data = {author: author, poemTitle: poemTitle, lines: lines};
+					res.send(data);
 				}
 			});
 		}

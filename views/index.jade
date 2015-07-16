@@ -6,9 +6,11 @@ html
 		script(type="text/javascript", src="lib/scripts.js")
 		script.
 			$(document).ready(function(){
-				$(".poem").html("<p>jquery working</p>");
+				getPoem();
 			});
 	body
 		h1!= message
 		.poem
-			p poem_test
+			h2.author
+			h3.title
+			.lines
