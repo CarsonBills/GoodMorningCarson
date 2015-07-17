@@ -12,6 +12,18 @@ function getPoem(){
 	});
 }
 
+function getWeather(){
+	$.ajax({
+		url : "/weather",
+		type: "get",
+		success: function(data) {
+			console.log(data)
+			printWeather(data);
+		}
+	});
+}
+
+
 function printPoem(poemData){
 	$("h2.author").html(poemData.author);
 	$("h3.title").html(poemData.poemTitle);
@@ -20,18 +32,7 @@ function printPoem(poemData){
 	})
 }
 
-function getWeather(){
-	$.ajax({
-		url : "/weather",
-		type: "get",
-		dataType: "json",
-		success: function(data) {
-			console.log(data);
-			printWeather(data);
-		}
-	});
-}
 
 function printWeather(weatherData){
-	$("content").append(weatherData);
+	$(".content").append("<p>" + weatherData.city + "</p>");
 }

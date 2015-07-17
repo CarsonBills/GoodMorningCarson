@@ -42,12 +42,14 @@ app.get("/weather", function(req, res){
 			var apiDate = moment(new Date(weather["current_observation"]["observation_time_rfc822"].substring(5, 16)));
 			today.date = apiDate;
 
+			var city = weather["current_observation"]["display_location"]["full"]
+			var current = weather["current_observation"]
+			var forecast = weather["forecast"]
+			today.weather = {forecast: forecast, currentWeather: current, city: city}
 
-			today.weather = 
+// today.currentWeather, today.forecast, {city: city}
 
 			res.send(today.weather);
-
-
 		}
 	});
 });
