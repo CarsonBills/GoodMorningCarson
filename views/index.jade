@@ -6,9 +6,9 @@ html
 		script(type="text/javascript", src="lib/scripts.js")
 		script.
 			$(document).ready(function(){
-				getPoem();
+				// getPoem();
 				getWeather();
-				updateClock();
+				setInterval('updateClock()', 1000);
 			});
 	body
 		h1!= message

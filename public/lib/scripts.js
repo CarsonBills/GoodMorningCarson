@@ -46,7 +46,7 @@ function updateClock ( ){
   currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
   currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
-  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
    
   $("#clock").html(currentTimeString);          
 }
