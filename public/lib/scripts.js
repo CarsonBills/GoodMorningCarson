@@ -38,7 +38,16 @@ function getCute(){
 		url: "/cute",
 		type: "get",
 		success: function(data) {
-			
+			console.log(data);
+		}
+	});
+}
+
+function getRedditLinks(){
+	$.ajax({
+		url: "/reddit",
+		type: "get",
+		success: function(data){
 			console.log(data);
 		}
 	});
