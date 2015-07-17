@@ -53,6 +53,23 @@ function getRedditLinks(){
 	});
 }
 
+function getNYTLinks(){
+	$.ajax({
+		url: "/nyttop",
+		type: "get",
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
+
+function printNYT(){
+
+}
+
+function printReddit(){
+
+}
 
 function printHistory(){
 

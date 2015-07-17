@@ -75,7 +75,6 @@ app.get("/cute", function(req, res){
 			var xmlCute = parser.parseString(cuteBody, function(err, result){
 				var cuteImage = result.response.data[0].images[0].image[0].url[0]
 				// XML is really dumb.
-				console.log(cuteImage)
 				res.send(cuteImage)
 			});
 		}
@@ -86,10 +85,26 @@ app.get("/reddit", function(req, res){
 	request("https://www.reddit.com/r/all.json?limit=5", function(error, redditResponse, redditBody){
 		if (!error && redditResponse.statusCode === 200){
 			var redditLinks = JSON.parse(redditBody).data.children;
-			console.log(redditLinks);
 			res.send(redditLinks);
 		}
-	})
-})
+	});
+});
+
+app.get("/nyttop", function(req, res){
+	request("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=" + process.env.NYTTOP, function(error, nytResponse, nytBody){
+		if (!error && nytResponse.statusCode === 200) {
+			var articleList = JSON.parse(nytBody).results
+			var articles = []
+			while (articles.length <= 5){
+				articles.push(
+					articleList.splice((Math.floor(Math.random() * articleList.length)), 1)
+				); 
+			}
+
+			// console.log(articles);
+			res.send(articles);
+		}
+	});
+});
 
 app.listen(8080);
