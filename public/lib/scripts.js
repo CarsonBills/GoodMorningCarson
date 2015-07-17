@@ -33,9 +33,25 @@ function getHistory(){
 	});
 }
 
+function getCute(){
+	$.ajax({
+		url: "/cute",
+		type: "get",
+		success: function(data) {
+			
+			console.log(data);
+		}
+	});
+}
+
+
 function printHistory(){
 
-	
+
+}
+
+function printCute(){
+
 }
 
 function printPoem(poemData){

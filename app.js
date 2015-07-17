@@ -2,6 +2,8 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require("body-parser");
 var moment = require("moment");
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser();
 var dotenv = require("dotenv");
 dotenv.load();
 var app = express();
@@ -61,8 +63,20 @@ app.get("/history", function(req, res){
 		if (!error && historyResponse.statusCode === 200) {
 			var events = JSON.parse(historyBody).data.Events;
 			var historicalEvent = events[Math.floor(Math.random() * events.length)];
-			console.log(historicalEvent);
 			res.send(historicalEvent);
+		}
+	});
+});
+
+
+app.get("/cute", function(req, res){
+	request("http://thecatapi.com/api/images/get?format=xml", function(error, cuteResponse, cuteBody){
+		if (!error && cuteResponse.statusCode === 200) {
+			var xmlCute = parser.parseString(cuteBody, function(err, result){
+				var cuteImage = result.response.data[0].images[0].image[0].url[0]
+				console.log(cuteImage)
+				res.send(cuteImage)
+			});
 		}
 	});
 });
