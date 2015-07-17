@@ -1,7 +1,9 @@
 var express = require('express');
 var request = require('request');
 var bodyParser = require("body-parser");
-var moment = require("moment")
+var moment = require("moment");
+var dotenv = require("dotenv");
+dotenv.load();
 var app = express();
 var today = new Object();
 
@@ -36,7 +38,7 @@ app.get("/poem", function(req, res){
 });
 
 app.get("/weather", function(req, res){
-	request("http://api.wunderground.com/api/2d328e775b952ed3/conditions/forecast/q/NY/New_York.json", function (error, weatherResponse, weatherBody){
+	request("http://api.wunderground.com/api/" + process.env.WEATHER + "/conditions/forecast/q/NY/New_York.json", function (error, weatherResponse, weatherBody){
 		if (!error && weatherResponse.statusCode === 200) {
 			var weather = JSON.parse(weatherBody)
 			var apiDate = moment(new Date(weather["current_observation"]["observation_time_rfc822"].substring(5, 16)));
