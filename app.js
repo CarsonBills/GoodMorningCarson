@@ -3,7 +3,7 @@ var request = require('request');
 var bodyParser = require("body-parser");
 var moment = require("moment")
 var app = express();
-var today;
+var today = new Object();
 
 app.use(express.static(__dirname + '/public'));
 
@@ -16,7 +16,7 @@ app.get("/", function(req, res){
 
 app.get("/poem", function(req, res){
 	request("http://poetrydb.org/author", function (error, authorResponse, authorBody){
-		if (!error && authorResponse.statusCode === 200) {
+		if (!error && authorResponse.statusCode === 200 && today.date.format("DD MM YYYY") !== moment(new Date()).format("DD MM YYYY")) {
 			var authors = JSON.parse(authorBody).authors
 			var author = authors[Math.floor(Math.random() * authors.length)];
 			request("http://poetrydb.org/author/" + author, function(error, poemResponse, poemBody){
@@ -25,8 +25,8 @@ app.get("/poem", function(req, res){
 					var poem = poemList[Math.floor(Math.random() * poemList.length)];
 					var poemTitle = poem.title
 					var lines = poem.lines
-					var data = {author: author, poemTitle: poemTitle, lines: lines};
-					res.send(data);
+					today.poem = {author: author, poemTitle: poemTitle, lines: lines};
+					res.send(today.poem);
 				}
 			});
 		}
@@ -38,8 +38,12 @@ app.get("/weather", function(req, res){
 		if (!error && weatherResponse.statusCode === 200) {
 			var weather = JSON.parse(weatherBody)
 			var apiDate = moment(new Date(weather["current_observation"]["observation_time_rfc822"].substring(5, 16)));
-			today = apiDate;
-			console.log(apiDate.format("DD MM YYYY") === today.format("DD MM YYYY"));
+			today.date = apiDate;
+
+
+
+
+
 		}
 	});
 });
