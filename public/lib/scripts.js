@@ -33,6 +33,10 @@ function getHistory(){
 	});
 }
 
+function printHistory(){
+
+	
+}
 
 function printPoem(poemData){
 	$("h2.author").html(poemData.author);
