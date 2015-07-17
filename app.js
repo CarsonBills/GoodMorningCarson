@@ -40,7 +40,7 @@ app.get("/poem", function(req, res){
 app.get("/weather", function(req, res){
 	request("http://api.wunderground.com/api/" + process.env.WEATHER + "/conditions/forecast/q/NY/New_York.json", function (error, weatherResponse, weatherBody){
 		if (!error && weatherResponse.statusCode === 200) {
-			var weather = JSON.parse(weatherBody)
+			var weather = JSON.parse(weatherBody);
 			var apiDate = moment(new Date(weather["current_observation"]["observation_time_rfc822"].substring(5, 16)));
 			today.date = apiDate;
 
@@ -52,6 +52,17 @@ app.get("/weather", function(req, res){
 // today.currentWeather, today.forecast, {city: city}
 
 			res.send(today.weather);
+		}
+	});
+});
+
+app.get("/history", function(req, res){
+	request("http://history.muffinlabs.com/date", function(error, historyResponse, historyBody){
+		if (!error && historyResponse.statusCode === 200) {
+			var events = JSON.parse(historyBody).data.Events;
+			var historicalEvent = events[Math.floor(Math.random() * events.length)];
+			console.log(historicalEvent);
+			res.send(historicalEvent);
 		}
 	});
 });

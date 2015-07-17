@@ -17,8 +17,18 @@ function getWeather(){
 		url : "/weather",
 		type: "get",
 		success: function(data) {
-			console.log(data)
+			console.log(data);
 			printWeather(data);
+		}
+	});
+}
+
+function getHistory(){
+	$.ajax({
+		url: "/history",
+		type: "get",
+		success: function(data) {
+			console.log(data);
 		}
 	});
 }
