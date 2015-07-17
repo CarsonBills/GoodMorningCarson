@@ -6,15 +6,32 @@ function getPoem(){
 		type: "get",
 		dataType: "json",
 		success: function(data) {
-			$("h2.author").html(data.author);
-			$("h3.title").html(data.poemTitle);
-			printPoem(data.lines);
+			console.log(data)
+			printPoem(data);
 		}
 	});
 }
 
-function printPoem(arrayOfLines){
-	$.each(arrayOfLines, function(i, val){
+function printPoem(poemData){
+	$("h2.author").html(poemData.author);
+	$("h3.title").html(poemData.poemTitle);
+	$.each(poemData.lines, function(i, val){
 		$(".lines").append("<p>" + val + "</p>");
 	})
+}
+
+function getWeather(){
+	$.ajax({
+		url : "/weather",
+		type: "get",
+		dataType: "json",
+		success: function(data) {
+			console.log(data);
+			printWeather(data);
+		}
+	});
+}
+
+function printWeather(weatherData){
+	$("content").append(weatherData);
 }

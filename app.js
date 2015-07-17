@@ -16,7 +16,9 @@ app.get("/", function(req, res){
 
 app.get("/poem", function(req, res){
 	request("http://poetrydb.org/author", function (error, authorResponse, authorBody){
-		if (!error && authorResponse.statusCode === 200 && today.date.format("DD MM YYYY") !== moment(new Date()).format("DD MM YYYY")) {
+		if (!error && authorResponse.statusCode === 200 
+			// && today.date.format("DD MM YYYY") !== moment(new Date()).format("DD MM YYYY")
+			) {
 			var authors = JSON.parse(authorBody).authors
 			var author = authors[Math.floor(Math.random() * authors.length)];
 			request("http://poetrydb.org/author/" + author, function(error, poemResponse, poemBody){
@@ -25,7 +27,7 @@ app.get("/poem", function(req, res){
 					var poem = poemList[Math.floor(Math.random() * poemList.length)];
 					var poemTitle = poem.title
 					var lines = poem.lines
-					today.poem = {author: author, poemTitle: poemTitle, lines: lines};
+					today.poem = {author: author, poemTitle: poemTitle, lines: lines, message: "Daily Poem"};
 					res.send(today.poem);
 				}
 			});
@@ -34,14 +36,16 @@ app.get("/poem", function(req, res){
 });
 
 app.get("/weather", function(req, res){
-	request("http://api.wunderground.com/api/2d328e775b952ed3/conditions/forecast/hourly/q/NY/New_York.json", function (error, weatherResponse, weatherBody){
+	request("http://api.wunderground.com/api/2d328e775b952ed3/conditions/forecast/q/NY/New_York.json", function (error, weatherResponse, weatherBody){
 		if (!error && weatherResponse.statusCode === 200) {
 			var weather = JSON.parse(weatherBody)
 			var apiDate = moment(new Date(weather["current_observation"]["observation_time_rfc822"].substring(5, 16)));
 			today.date = apiDate;
 
 
+			today.weather = 
 
+			res.send(today.weather);
 
 
 		}
