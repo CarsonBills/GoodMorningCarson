@@ -1,4 +1,5 @@
 var express = require('express');
+var exphbs = require('express-handlebars');
 var request = require('request');
 var bodyParser = require("body-parser");
 var moment = require("moment");
@@ -11,7 +12,8 @@ var today = new Object();
 
 app.use(express.static(__dirname + '/public'));
 
-app.set('view engine', 'jade');
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set('view engine', 'handlebars');
 
 
 app.get("/", function(req, res){
@@ -100,8 +102,6 @@ app.get("/nyttop", function(req, res){
 					articleList.splice((Math.floor(Math.random() * articleList.length)), 1)
 				); 
 			}
-
-			// console.log(articles);
 			res.send(articles);
 		}
 	});
