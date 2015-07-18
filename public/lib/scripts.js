@@ -73,7 +73,6 @@ function printReddit(){
 
 function printHistory(){
 
-
 }
 
 function printCute(){
