@@ -80,6 +80,7 @@ function printCute(){
 }
 
 function printPoem(poemData){
+	$("h2.section").html(poemData.sectionTitle)
 	$("h2.author").html(poemData.author);
 	$("h3.title").html(poemData.poemTitle);
 	$.each(poemData.lines, function(i, val){

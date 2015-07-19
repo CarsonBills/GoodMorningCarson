@@ -10,7 +10,7 @@ module.exports = function(app) {
 	dotenv.load();
 
 	app.get("/", function(req, res){
-		res.render("index", {title: "Good Morning Carson", message: "Good Morning Carson."});
+		res.render("index", {title: "Good Morning Carson", header: "Good Morning Carson."});
 	});
 
 	app.get("/poem", function(req, res){
@@ -26,7 +26,7 @@ module.exports = function(app) {
 						var poem = poemList[Math.floor(Math.random() * poemList.length)];
 						var poemTitle = poem.title
 						var lines = poem.lines
-						today.poem = {author: author, poemTitle: poemTitle, lines: lines, message: "Daily Poem"};
+						today.poem = {author: author, poemTitle: poemTitle, lines: lines, sectionTitle: "Daily Poem"};
 						res.send(today.poem);
 					}
 				});
