@@ -27,6 +27,9 @@
 			<p>{{weatherData.weather.conditions}}</p>
 		</div>
 
+		<div ng-controller="CuteController as cuteData" class="cute">
+			<img ng-src="{{cuteData.cute.url}}"/>
+		</div>
 
 		<script>
 			$(document).ready(function(){

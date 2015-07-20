@@ -15,10 +15,16 @@ app.controller("WeatherController", function(){
 });
 
 var weatherData = {
-
 	conditions: "Good"
 }
 
+app.controller("CuteController", function(){
+	this.cute = cuteData;
+})
+
+var cuteData = {
+	url: "http://25.media.tumblr.com/tumblr_ly48t5R2BT1r189uao1_1280.jpg"
+}
 
 
 // function getPoem(){
