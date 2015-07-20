@@ -10,6 +10,17 @@ var poemData = {
 	lines: ["To be or not to be", "that is the question"]
 }
 
+app.directive("poemData", function(){
+	return {
+		restrict: "E",
+		templateUrl: "poem-data.html",
+		controller: function(){
+			this.poem = poemData;
+		},
+		controllerAs: "poemData"
+	};
+});
+
 app.controller("WeatherController", function(){
 	this.weather = weatherData;
 });

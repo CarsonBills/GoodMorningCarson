@@ -13,15 +13,9 @@
 
 		<div id="clock"></div>
 
-		<div ng-controller="PoemController as poemData" class="poem">
-			<h2 class="author">{{poemData.poem.title}}</h2>
-			<h3 class="title">{{poemData.poem.author}}</h3>
-			<div class="lines">
-				<p ng-repeat="line in poemData.poem.lines" class="line">
-					{{line}}
-				</p>
-			</div>
-		</div>
+		<poem-data></poem-data>
+
+
 
 		<div ng-controller="WeatherController as weatherData" class="weather">
 			<p>{{weatherData.weather.conditions}}</p>
@@ -41,6 +35,18 @@
 				// getNYTLinks()
 				setInterval('updateClock()', 1000);
 			});
+		</script>
+
+		<script type="text/ng-template" id="poem-data.html">
+			<div class="poem">
+				<h2 class="author">{{poemData.poem.title}}</h2>
+				<h3 class="title">{{poemData.poem.author}}</h3>
+				<div class="lines">
+					<p ng-repeat="line in poemData.poem.lines" class="line">
+						{{line}}
+					</p>
+				</div>
+			</div>
 		</script>
 
 	</body>

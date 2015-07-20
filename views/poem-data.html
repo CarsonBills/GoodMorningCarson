@@ -1,0 +1,9 @@
+<div class="poem">
+	<h2 class="author">{{poemData.poem.title}}</h2>
+	<h3 class="title">{{poemData.poem.author}}</h3>
+	<div class="lines">
+		<p ng-repeat="line in poemData.poem.lines" class="line">
+			{{line}}
+		</p>
+	</div>
+</div>
