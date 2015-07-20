@@ -1,5 +1,8 @@
 console.log(":)")
 
+
+var app = angular.module("gmc", []);
+
 function getPoem(){
 	$.ajax({
 		url : "/poem",
