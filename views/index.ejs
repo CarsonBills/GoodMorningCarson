@@ -13,11 +13,15 @@
 
 		<div id="clock"></div>
 
-		<div class="poem">
+		<div ng-controller="PoemController as poemData" class="poem">
 
-			<h2 class="author"></h2>
-			<h3 class="title"></h3>
-			<div class="lines"></div>
+			<h2 class="author">{{poemData.poem.title}}</h2>
+			<h3 class="title">{{poemData.poem.author}}</h3>
+			<div class="lines">
+				<p ng-repeat="line in poemData.poem.lines" class="line">
+					{{line}}
+				</p>
+			</div>
 
 		</div>
 
@@ -25,12 +29,12 @@
 
 		<script>
 			$(document).ready(function(){
-				getPoem();
-				getWeather();
-				getHistory();
-				getCute();
-				getRedditLinks();
-				getNYTLinks()
+				// getPoem();
+				// getWeather();
+				// getHistory();
+				// getCute();
+				// getRedditLinks();
+				// getNYTLinks()
 				setInterval('updateClock()', 1000);
 			});
 		</script>
