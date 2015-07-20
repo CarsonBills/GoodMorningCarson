@@ -26,7 +26,7 @@ module.exports = function(app) {
 						var poem = poemList[Math.floor(Math.random() * poemList.length)];
 						var poemTitle = poem.title
 						var lines = poem.lines
-						today.poem = {author: author, poemTitle: poemTitle, lines: lines, sectionTitle: "Daily Poem"};
+						today.poem = {author: author, title: poemTitle, lines: lines};
 						res.send(today.poem);
 					}
 				});

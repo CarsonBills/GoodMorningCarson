@@ -1,25 +1,44 @@
 var app = angular.module("gmc", []);
 
-app.controller("PoemController", function(){
-	this.poem = poemData;
-});
+// app.controller("PoemController", function(){
+// 	this.poem = poemData;
+// });
 
-var poemData = {
-	title: "Poem Title",
-	author: "Poem Author",
-	lines: ["To be or not to be", "that is the question"]
-}
+// var poemData = {
+// 	title: "Poem Title",
+// 	author: "Poem Author",
+// 	lines: ["To be or not to be", "that is the question"]
+// }
 
-app.directive("poemData", function(){
+// app.directive("poemData", function(){
+// 	return {
+// 		restrict: "E",
+// 		templateUrl: "poem-data.html",
+// 		controller: function(){
+// 			this.poem = poemData;
+// 			console.log(poemData)
+// 		},
+// 		controllerAs: "poemData"
+// 	};
+// });
+
+
+app.directive("poemData", ["$http", function($http){
 	return {
 		restrict: "E",
 		templateUrl: "poem-data.html",
 		controller: function(){
-			this.poem = poemData;
+			var that = this
+			$http.get("/poem").success(function(data){
+				console.log(data)
+				that.poem = data;
+			});
 		},
 		controllerAs: "poemData"
 	};
-});
+}]);
+
+
 
 app.controller("WeatherController", function(){
 	this.weather = weatherData;
