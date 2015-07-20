@@ -14,7 +14,6 @@
 		<div id="clock"></div>
 
 		<div ng-controller="PoemController as poemData" class="poem">
-
 			<h2 class="author">{{poemData.poem.title}}</h2>
 			<h3 class="title">{{poemData.poem.author}}</h3>
 			<div class="lines">
@@ -22,7 +21,10 @@
 					{{line}}
 				</p>
 			</div>
+		</div>
 
+		<div ng-controller="WeatherController as weatherData" class="weather">
+			<p>{{weatherData.weather.conditions}}</p>
 		</div>
 
 		<div class="content"></div>

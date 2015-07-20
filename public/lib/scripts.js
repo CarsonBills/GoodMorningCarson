@@ -1,6 +1,3 @@
-console.log(":)")
-
-
 var app = angular.module("gmc", []);
 
 app.controller("PoemController", function(){
@@ -13,7 +10,14 @@ var poemData = {
 	lines: ["To be or not to be", "that is the question"]
 }
 
+app.controller("WeatherController", function(){
+	this.weather = weatherData;
+});
 
+var weatherData = {
+
+	conditions: "Good"
+}
 
 
 
