@@ -13,21 +13,36 @@
 		<h1><%=header%></h1>
 
 		<div id="clock"></div>
-	
-		<p ng-click="getPoem=!getPoem">Poem</p>
 
-		<div ng-include="'poem-data.html'" ng-show="getPoem" ng-controller="PoemController as poemData">
+
+		<div id="tabs" ng-controller="TabsCtrl">
+		 	<ul>
+        <div class="tab-button" ng-repeat="tab in tabs" 
+        	ng-click="onClickTab(tab)">{{tab.title}}</div>
+      </ul>
+
+			<div id="main-view">
+				<div ng-include="currentTab"></div>
+			</div>
 		</div>
+		
+				<cute-data></cute-data>
 
-		<cute-data></cute-data>
+				<history-data></history-data>
 
-		<history-data></history-data>
+				<reddit-data></reddit-data>
 
-		<reddit-data></reddit-data>
+				<nytimes-data></nytimes-data>
 
-		<nytimes-data></nytimes-data>
+				<weather-data></weather-data>
 
-		<weather-data></weather-data>
+				<poem-data></poem-data>
+
+
+		<!-- 		<p ng-click="getPoem=!getPoem">Poem</p>
+				<div ng-include="'poem-data.html'" ng-show="getPoem" ng-controller="PoemController as poemData">
+				</div> -->
+
 
 		<script>
 			$(document).ready(function(){
@@ -37,10 +52,10 @@
 
 		<script type="text/ng-template" id="poem-data.html">
 			<div class="poem">
-				<h2 class="author">{{poemData.poem.data.title}}</h2>
-				<h3 class="title">{{poemData.poem.data.author}}</h3>
+				<h2 class="author">{{poemData.poem.title}}</h2>
+				<h3 class="title">{{poemData.poem.author}}</h3>
 				<div class="lines">
-					<p ng-repeat="line in poemData.poem.data.lines track by $index" class="line">
+					<p ng-repeat="line in poemData.poem.lines track by $index" class="line">
 						{{line}}
 					</p>
 				</div>

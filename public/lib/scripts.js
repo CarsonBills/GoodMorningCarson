@@ -1,32 +1,61 @@
 var app = angular.module("gmc", []);
 
-app.factory("getPoem", function($http){
-	return $http.get("/poem").success(function(data){
-		console.log(data)
-	})
-})
 
-app.controller("PoemController", function(getPoem){
-	var that = this;
-	getPoem.then(function(data){
-		that.poem = data
-	})
-})
+app.controller("TabsCtrl", ["$scope", function($scope){
+	$scope.tabs = [{
+		title: "Poem",
+		url: "poem-data.html"
+	}, {
+		title: "Weather",
+		url: "weather-data.html"
+	}, {
+		title: "Reddit",
+		url: "reddit-data.html"
+	}, {
+		title: "NY Times",
+		url: "nytimes-data.html"
+	}, {
+		title: "Daily Cute",
+		url: "cute-data.html"
+	}, {
+		title: "Today in History",
+		url: "history-data.html"
+	}];
 
-// app.directive("poemData", ["$http", function($http){
-// 	return {
-// 		restrict: "E",
-// 		templateUrl: "poem-data.html",
-// 		controller: function(){
-// 			var that = this;
-// 			$http.get("/poem").success(function(data){
-// 				console.log(data)
-// 				that.poem = data;
-// 			});
-// 		},
-// 		controllerAs: "poemData"
-// 	};
-// }]);
+	$scope.currentTab = "weather-data.html";
+
+	$scope.onClickTab = function(tab){
+		$scope.currentTab = tab.url;
+	}
+}])
+
+// app.factory("getPoem", function($http){
+// 	return $http.get("/poem").success(function(data){
+// 		console.log(data)
+// 	})
+// })
+
+// app.controller("PoemController", function(getPoem){
+// 	var that = this;
+// 	getPoem.then(function(data){
+// 		that.poem = data
+// 	})
+// })
+
+app.directive("poemData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "poem-data.html",
+		controller: function(){
+			var that = this;
+			$http.get("/poem").success(function(data){
+				console.log(data)
+				that.poem = data;
+			});
+		},
+		controllerAs: "poemData"
+	};
+}]);
 
 
 app.directive("cuteData", ["$http", function($http){
@@ -105,9 +134,6 @@ app.directive("weatherData", ["$http", function($http){
 }]);
 
 
-function renderPoem(){
-	console.log("ButtonCLick!")
-}
 
 function updateClock ( ){
   var currentTime = new Date ( );
