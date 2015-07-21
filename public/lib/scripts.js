@@ -58,7 +58,22 @@ app.directive("redditData", ["$http", function($http){
 		},
 		controllerAs: "redditData"
 	};
-}])
+}]);
+
+app.directive("nytimesData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "nytimes-data.html",
+		controller: function(){
+			var that = this;
+			$http.get("/nyttop").success(function(data){
+				console.log(data);
+				that.nytimes = data
+			});
+		},
+		controllerAs: "nytimesData"
+	};
+}]);
 
 
 app.controller("WeatherController", function(){

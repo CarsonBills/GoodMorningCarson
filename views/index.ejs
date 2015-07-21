@@ -21,6 +21,8 @@
 
 		<reddit-data></reddit-data>
 
+		<nytimes-data></nytimes-data>
+
 		<div ng-controller="WeatherController as weatherData" class="weather">
 			<p>{{weatherData.weather.conditions}}</p>
 		</div>
@@ -63,10 +65,18 @@
 
 		<script type="text/ng-template" id="reddit-data.html">
 			<div class="reddit">
-				<div ng-repeat="post in redditData.reddit" class="reddit-article">
+				<div ng-repeat="post in redditData.reddit" class="reddit-post">
 					<p>{{post.data.title}}</p>
 					<a href="{{post.data.url}}">Reddit Link</a>
 				</div>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="nytimes-data.html">
+			<div class="nytimes">
+				<div ng-repeat="article in nytimesData.nytimes" class="nytimes-article">
+				<p>{{article[0].title}}</p>
+				<a href="{{article[0].url}}">NY Times Link</a>
 			</div>
 		</script>
 
