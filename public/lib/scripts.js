@@ -45,6 +45,21 @@ app.directive("historyData", ["$http", function($http){
 	};
 }]);
 
+app.directive("redditData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "reddit-data.html",
+		controller: function(){
+			var that = this;
+			$http.get("/reddit").success(function(data){
+				console.log(data);
+				that.reddit = data;
+			});
+		},
+		controllerAs: "redditData"
+	};
+}])
+
 
 app.controller("WeatherController", function(){
 	this.weather = weatherData;

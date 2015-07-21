@@ -61,6 +61,16 @@
 			</div>
 		</script>
 
+		<script type="text/ng-template" id="reddit-data.html">
+			<div class="reddit">
+				<div ng-repeat="post in redditData.reddit" class="reddit-article">
+					{{post.data.author}}
+					{{post.data.title}}
+					{{post.data.url}}
+				</div>
+			</div>
+		</script>
+
 	</body>
 </html>
 
