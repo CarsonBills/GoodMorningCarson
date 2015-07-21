@@ -17,6 +17,8 @@
 
 		<cute-data></cute-data>
 
+		<history-data></history-data>
+
 		<div ng-controller="WeatherController as weatherData" class="weather">
 			<p>{{weatherData.weather.conditions}}</p>
 		</div>
@@ -27,7 +29,6 @@
 			$(document).ready(function(){
 				// getWeather();
 				// getHistory();
-				// getCute();
 				// getRedditLinks();
 				// getNYTLinks()
 				setInterval('updateClock()', 1000);
@@ -49,6 +50,15 @@
 		<script type="text/ng-template" id="cute.html">
 			<div class="cute">
 				<img ng-src="{{cuteData.cute.cuteUrl}}"/>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="history-data.html">
+			<div class="history">
+
+				<h2>On this date in: {{historyData.history.year}}</h2>
+				<p>{{historyData.history.text}}</p>
+
 			</div>
 		</script>
 

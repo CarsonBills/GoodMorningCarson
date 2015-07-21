@@ -30,6 +30,21 @@ app.directive("cuteData", ["$http", function($http){
 	};
 }]);
 
+app.directive("historyData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "history-data.html",
+		controller: function(){
+			var that = this;
+			$http.get("/history").success(function(data){
+				console.log(data);
+				that.history = data;
+			});
+		},
+		controllerAs: "historyData"
+	};
+}]);
+
 
 app.controller("WeatherController", function(){
 	this.weather = weatherData;
@@ -39,13 +54,6 @@ var weatherData = {
 	conditions: "Good"
 }
 
-// app.controller("CuteController", function(){
-// 	this.cute = cuteData;
-// })
-
-// var cuteData = {
-// 	url: "http://25.media.tumblr.com/tumblr_ly48t5R2BT1r189uao1_1280.jpg"
-// }
 
 
 
@@ -63,16 +71,6 @@ var weatherData = {
 // function getHistory(){
 // 	$.ajax({
 // 		url: "/history",
-// 		type: "get",
-// 		success: function(data) {
-// 			console.log(data);
-// 		}
-// 	});
-// }
-
-// function getCute(){
-// 	$.ajax({
-// 		url: "/cute",
 // 		type: "get",
 // 		success: function(data) {
 // 			console.log(data);
@@ -109,10 +107,6 @@ var weatherData = {
 // }
 
 // function printHistory(){
-
-// }
-
-// function printCute(){
 
 // }
 
