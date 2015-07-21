@@ -92,23 +92,12 @@ app.directive("weatherData", ["$http", function($http){
 }]);
 
 
-// function getWeather(){
-// 	$.ajax({
-// 		url : "/weather",
-// 		type: "get",
-// 		success: function(data) {
-// 			console.log(data);
-// 			printWeather(data);
-// 		}
-// 	});
-// }
-
-
-
-
-// function printWeather(weatherData){
-// 	$(".content").append("<p>" + weatherData.city + "</p>");
-// }
+function renderPoem(){
+	$("#poem-button").click(function(){
+		console.log("ButtonCLick!")
+		templateState = true
+	})
+}
 
 function updateClock ( ){
   var currentTime = new Date ( );

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Good Morning Carson</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="lib/jquery-2.1.4.js" type="text/javascript"></script>
 	<script src="lib/angular.min.js" type="text/javascript"></script>
 	<script src="lib/scripts.js" type="text/javascript"></script>
@@ -13,7 +14,11 @@
 
 		<div id="clock"></div>
 
-		<poem-data></poem-data>
+		<p ng-click="showPoem = true"> Poem Button </p>
+		
+		<div id="poemContainer" ng-if="showPoem" ng-hide>
+			<poem-data></poem-data>
+		</div>
 
 		<cute-data></cute-data>
 
@@ -27,6 +32,7 @@
 
 		<script>
 			$(document).ready(function(){
+				// renderPoem();
 				setInterval('updateClock()', 1000);
 			});
 		</script>
