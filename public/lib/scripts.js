@@ -1,34 +1,11 @@
 var app = angular.module("gmc", []);
 
-// app.controller("PoemController", function(){
-// 	this.poem = poemData;
-// });
-
-// var poemData = {
-// 	title: "Poem Title",
-// 	author: "Poem Author",
-// 	lines: ["To be or not to be", "that is the question"]
-// }
-
-// app.directive("poemData", function(){
-// 	return {
-// 		restrict: "E",
-// 		templateUrl: "poem-data.html",
-// 		controller: function(){
-// 			this.poem = poemData;
-// 			console.log(poemData)
-// 		},
-// 		controllerAs: "poemData"
-// 	};
-// });
-
-
 app.directive("poemData", ["$http", function($http){
 	return {
 		restrict: "E",
 		templateUrl: "poem-data.html",
 		controller: function(){
-			var that = this
+			var that = this;
 			$http.get("/poem").success(function(data){
 				console.log(data)
 				that.poem = data;
@@ -39,6 +16,20 @@ app.directive("poemData", ["$http", function($http){
 }]);
 
 
+app.directive("cuteData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "cute.html",
+		controller: function(){
+			var that = this;
+			$http.get("/cute").success(function(data){
+				that.cute = data;
+			});
+		},
+		controllerAs: "cuteData"
+	};
+}]);
+
 
 app.controller("WeatherController", function(){
 	this.weather = weatherData;
@@ -48,26 +39,15 @@ var weatherData = {
 	conditions: "Good"
 }
 
-app.controller("CuteController", function(){
-	this.cute = cuteData;
-})
+// app.controller("CuteController", function(){
+// 	this.cute = cuteData;
+// })
 
-var cuteData = {
-	url: "http://25.media.tumblr.com/tumblr_ly48t5R2BT1r189uao1_1280.jpg"
-}
-
-
-// function getPoem(){
-// 	$.ajax({
-// 		url : "/poem",
-// 		type: "get",
-// 		dataType: "json",
-// 		success: function(data) {
-// 			console.log(data)
-// 			printPoem(data);
-// 		}
-// 	});
+// var cuteData = {
+// 	url: "http://25.media.tumblr.com/tumblr_ly48t5R2BT1r189uao1_1280.jpg"
 // }
+
+
 
 // function getWeather(){
 // 	$.ajax({
@@ -136,14 +116,6 @@ var cuteData = {
 
 // }
 
-// function printPoem(poemData){
-// 	$("h2.section").html(poemData.sectionTitle)
-// 	$("h2.author").html(poemData.author);
-// 	$("h3.title").html(poemData.poemTitle);
-// 	$.each(poemData.lines, function(i, val){
-// 		$(".lines").append("<p>" + val + "</p>");
-// 	})
-// }
 
 
 // function printWeather(weatherData){

@@ -70,7 +70,7 @@ module.exports = function(app) {
 				var xmlCute = parser.parseString(cuteBody, function(err, result){
 					var cuteImage = result.response.data[0].images[0].image[0].url[0]
 					// XML is really dumb.
-					res.send(cuteImage)
+					res.send({cuteUrl: cuteImage})
 				});
 			}
 		});

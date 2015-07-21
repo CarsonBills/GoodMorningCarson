@@ -15,19 +15,16 @@
 
 		<poem-data></poem-data>
 
-
+		<cute-data></cute-data>
 
 		<div ng-controller="WeatherController as weatherData" class="weather">
 			<p>{{weatherData.weather.conditions}}</p>
 		</div>
 
-		<div ng-controller="CuteController as cuteData" class="cute">
-			<img ng-src="{{cuteData.cute.url}}"/>
-		</div>
+
 
 		<script>
 			$(document).ready(function(){
-				// getPoem();
 				// getWeather();
 				// getHistory();
 				// getCute();
@@ -46,6 +43,12 @@
 						{{line}}
 					</p>
 				</div>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="cute.html">
+			<div class="cute">
+				<img ng-src="{{cuteData.cute.cuteUrl}}"/>
 			</div>
 		</script>
 
