@@ -26,23 +26,14 @@
 			</div>
 		</div>
 		
-				<cute-data></cute-data>
-
-				<history-data></history-data>
-
-				<reddit-data></reddit-data>
-
-				<nytimes-data></nytimes-data>
-
-				<weather-data></weather-data>
-
-				<poem-data></poem-data>
-
-
-		<!-- 		<p ng-click="getPoem=!getPoem">Poem</p>
-				<div ng-include="'poem-data.html'" ng-show="getPoem" ng-controller="PoemController as poemData">
-				</div> -->
-
+		<div ng-show="dataBank">
+			<cute-data></cute-data>
+			<history-data></history-data>
+			<reddit-data></reddit-data>
+			<nytimes-data></nytimes-data>
+			<weather-data></weather-data>
+			<poem-data></poem-data>
+		</div>
 
 		<script>
 			$(document).ready(function(){

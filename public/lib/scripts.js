@@ -16,7 +16,7 @@ app.controller("TabsCtrl", ["$scope", function($scope){
 		url: "nytimes-data.html"
 	}, {
 		title: "Daily Cute",
-		url: "cute-data.html"
+		url: "cute.html"
 	}, {
 		title: "Today in History",
 		url: "history-data.html"
@@ -27,20 +27,7 @@ app.controller("TabsCtrl", ["$scope", function($scope){
 	$scope.onClickTab = function(tab){
 		$scope.currentTab = tab.url;
 	}
-}])
-
-// app.factory("getPoem", function($http){
-// 	return $http.get("/poem").success(function(data){
-// 		console.log(data)
-// 	})
-// })
-
-// app.controller("PoemController", function(getPoem){
-// 	var that = this;
-// 	getPoem.then(function(data){
-// 		that.poem = data
-// 	})
-// })
+}]);
 
 app.directive("poemData", ["$http", function($http){
 	return {
