@@ -68,15 +68,6 @@ var weatherData = {
 // 	});
 // }
 
-// function getHistory(){
-// 	$.ajax({
-// 		url: "/history",
-// 		type: "get",
-// 		success: function(data) {
-// 			console.log(data);
-// 		}
-// 	});
-// }
 
 // function getRedditLinks(){
 // 	$.ajax({
@@ -103,10 +94,6 @@ var weatherData = {
 // }
 
 // function printReddit(){
-
-// }
-
-// function printHistory(){
 
 // }
 

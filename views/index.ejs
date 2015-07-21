@@ -19,6 +19,8 @@
 
 		<history-data></history-data>
 
+		<reddit-data></reddit-data>
+
 		<div ng-controller="WeatherController as weatherData" class="weather">
 			<p>{{weatherData.weather.conditions}}</p>
 		</div>
@@ -28,7 +30,6 @@
 		<script>
 			$(document).ready(function(){
 				// getWeather();
-				// getHistory();
 				// getRedditLinks();
 				// getNYTLinks()
 				setInterval('updateClock()', 1000);
@@ -55,10 +56,8 @@
 
 		<script type="text/ng-template" id="history-data.html">
 			<div class="history">
-
 				<h2>On this date in: {{historyData.history.year}}</h2>
 				<p>{{historyData.history.text}}</p>
-
 			</div>
 		</script>
 
