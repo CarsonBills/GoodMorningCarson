@@ -13,11 +13,10 @@
 		<h1><%=header%></h1>
 
 		<div id="clock"></div>
+	
+		<p ng-click="getPoem=!getPoem">Poem</p>
 
-		<p ng-click="showPoem = true"> Poem Button </p>
-		
-		<div id="poemContainer" ng-if="showPoem" ng-hide>
-			<poem-data></poem-data>
+		<div ng-include="'poem-data.html'" ng-show="getPoem" ng-controller="PoemController as poemData">
 		</div>
 
 		<cute-data></cute-data>
@@ -32,17 +31,16 @@
 
 		<script>
 			$(document).ready(function(){
-				// renderPoem();
 				setInterval('updateClock()', 1000);
 			});
 		</script>
 
 		<script type="text/ng-template" id="poem-data.html">
 			<div class="poem">
-				<h2 class="author">{{poemData.poem.title}}</h2>
-				<h3 class="title">{{poemData.poem.author}}</h3>
+				<h2 class="author">{{poemData.poem.data.title}}</h2>
+				<h3 class="title">{{poemData.poem.data.author}}</h3>
 				<div class="lines">
-					<p ng-repeat="line in poemData.poem.lines track by $index" class="line">
+					<p ng-repeat="line in poemData.poem.data.lines track by $index" class="line">
 						{{line}}
 					</p>
 				</div>

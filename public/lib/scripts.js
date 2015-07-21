@@ -1,19 +1,32 @@
 var app = angular.module("gmc", []);
 
-app.directive("poemData", ["$http", function($http){
-	return {
-		restrict: "E",
-		templateUrl: "poem-data.html",
-		controller: function(){
-			var that = this;
-			$http.get("/poem").success(function(data){
-				console.log(data)
-				that.poem = data;
-			});
-		},
-		controllerAs: "poemData"
-	};
-}]);
+app.factory("getPoem", function($http){
+	return $http.get("/poem").success(function(data){
+		console.log(data)
+	})
+})
+
+app.controller("PoemController", function(getPoem){
+	var that = this;
+	getPoem.then(function(data){
+		that.poem = data
+	})
+})
+
+// app.directive("poemData", ["$http", function($http){
+// 	return {
+// 		restrict: "E",
+// 		templateUrl: "poem-data.html",
+// 		controller: function(){
+// 			var that = this;
+// 			$http.get("/poem").success(function(data){
+// 				console.log(data)
+// 				that.poem = data;
+// 			});
+// 		},
+// 		controllerAs: "poemData"
+// 	};
+// }]);
 
 
 app.directive("cuteData", ["$http", function($http){
@@ -93,10 +106,7 @@ app.directive("weatherData", ["$http", function($http){
 
 
 function renderPoem(){
-	$("#poem-button").click(function(){
-		console.log("ButtonCLick!")
-		templateState = true
-	})
+	console.log("ButtonCLick!")
 }
 
 function updateClock ( ){
