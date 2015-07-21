@@ -23,17 +23,10 @@
 
 		<nytimes-data></nytimes-data>
 
-		<div ng-controller="WeatherController as weatherData" class="weather">
-			<p>{{weatherData.weather.conditions}}</p>
-		</div>
-
-
+		<weather-data></weather-data>
 
 		<script>
 			$(document).ready(function(){
-				// getWeather();
-				// getRedditLinks();
-				// getNYTLinks()
 				setInterval('updateClock()', 1000);
 			});
 		</script>
@@ -79,6 +72,27 @@
 				<a href="{{article[0].url}}">NY Times Link</a>
 			</div>
 		</script>
+
+		<script type="text/ng-template" id="weather-data.html">
+			<div class="weather">
+				<div class="current">
+					<p>Current Temp: {{weatherData.weather.currentWeather.temp_f}}&deg</p>
+					<p>Feels like: {{weatherData.weather.currentWeather.feelslike_f}}&deg</p>
+					<div class="weather-conditions">
+						<img ng-src="{{weatherData.weather.currentWeather.icon_url}}"/>
+						<p>Current Conditions: {{weatherData.weather.currentWeather.weather}}</p>
+					</div>
+				</div>
+				<div class="forecast">
+					<p>High: {{weatherData.weather.forecast.simpleforecast.forecastday[0].high.fahrenheit}}&deg</p>
+					<p>Low: {{weatherData.weather.forecast.simpleforecast.forecastday[0].low.fahrenheit}}&deg</p>
+					<p>Conditions: {{weatherData.weather.forecast.simpleforecast.forecastday[0].conditions}}&deg</p>
+					<img ng-src="{{weatherData.weather.forecast.txt_forecast.forecastday[0].icon_url}}"/>
+					<p>Description: {{weatherData.weather.forecast.txt_forecast.forecastday[0].fcttext}}</p>
+				</div>
+			</div>
+		</script>
+
 
 	</body>
 </html>

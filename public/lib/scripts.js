@@ -76,15 +76,20 @@ app.directive("nytimesData", ["$http", function($http){
 }]);
 
 
-app.controller("WeatherController", function(){
-	this.weather = weatherData;
-});
-
-var weatherData = {
-	conditions: "Good"
-}
-
-
+app.directive("weatherData", ["$http", function($http){
+	return {
+		restrict: "E",
+		templateUrl: "weather-data.html",
+		controller: function(){
+			var that = this;
+			$http.get("/weather").success(function(data){
+				console.log(data);
+				that.weather = data;
+			});
+		},
+		controllerAs: "weatherData"
+	};
+}]);
 
 
 // function getWeather(){
@@ -98,34 +103,6 @@ var weatherData = {
 // 	});
 // }
 
-
-// function getRedditLinks(){
-// 	$.ajax({
-// 		url: "/reddit",
-// 		type: "get",
-// 		success: function(data){
-// 			console.log(data);
-// 		}
-// 	});
-// }
-
-// function getNYTLinks(){
-// 	$.ajax({
-// 		url: "/nyttop",
-// 		type: "get",
-// 		success: function(data){
-// 			console.log(data);
-// 		}
-// 	});
-// }
-
-// function printNYT(){
-
-// }
-
-// function printReddit(){
-
-// }
 
 
 
