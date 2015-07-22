@@ -22,7 +22,8 @@
       </ul>
 
 			<div id="main-view">
-				<div ng-include="currentTab"></div>
+				<div ng-include="currentTab">
+				</div>
 			</div>
 		</div>
 		
@@ -70,7 +71,7 @@
 			<div class="reddit">
 				<div ng-repeat="post in redditData.reddit" class="reddit-post">
 					<p>{{post.data.title}}</p>
-					<a href="{{post.data.url}}">Reddit Link</a>
+					<a href="{{post.data.url}}"><img src="/images/reddit-alien.png"></a>
 				</div>
 			</div>
 		</script>

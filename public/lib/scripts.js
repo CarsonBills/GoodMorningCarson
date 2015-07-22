@@ -1,6 +1,5 @@
 var app = angular.module("gmc", []);
 
-
 app.controller("TabsCtrl", ["$scope", function($scope){
 	$scope.tabs = [{
 		title: "Poem",
