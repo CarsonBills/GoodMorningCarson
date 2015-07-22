@@ -28,6 +28,8 @@ app.controller("TabsCtrl", ["$scope", function($scope){
 	}
 }]);
 
+
+
 app.directive("poemData", ["$http", function($http){
 	return {
 		restrict: "E",
@@ -35,8 +37,11 @@ app.directive("poemData", ["$http", function($http){
 		controller: function(){
 			var that = this;
 			$http.get("/poem").success(function(data){
-				console.log(data)
-				that.poem = data;
+				if($http.pendingRequests.length < 1){
+					console.log(data)
+					that.poem = data;
+					clearLoading();
+				}
 			});
 		},
 		controllerAs: "poemData"
@@ -119,7 +124,9 @@ app.directive("weatherData", ["$http", function($http){
 	};
 }]);
 
-
+function clearLoading(){
+	$(".loading").hide();
+}
 
 function updateClock ( ){
   var currentTime = new Date ( );
