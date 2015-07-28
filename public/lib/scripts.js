@@ -21,6 +21,8 @@ app.controller("TabsCtrl", ["$scope", function($scope){
 		url: "history-data.html"
 	}];
 
+	console.log($scope)
+
 	$scope.currentTab = "weather-data.html";
 
 	$scope.onClickTab = function(tab){
@@ -37,11 +39,8 @@ app.directive("poemData", ["$http", function($http){
 		controller: function(){
 			var that = this;
 			$http.get("/poem").success(function(data){
-				if($http.pendingRequests.length < 1){
-					console.log(data)
-					that.poem = data;
-					clearLoading();
-				}
+				console.log(data)
+				that.poem = data;
 			});
 		},
 		controllerAs: "poemData"
@@ -87,6 +86,7 @@ app.directive("redditData", ["$http", function($http){
 			$http.get("/reddit").success(function(data){
 				console.log(data);
 				that.reddit = data;
+				clearLoading();
 			});
 		},
 		controllerAs: "redditData"
