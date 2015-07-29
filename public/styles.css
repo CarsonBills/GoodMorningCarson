@@ -18,7 +18,7 @@ body {
   border-style: solid;
   border-color: #643D38;
 	text-align: center;
-	position: relative;
+	position: absolute;
 }
 
 div.bubble:before
@@ -43,6 +43,8 @@ div.bubble:after
 
 .mascot {
 	max-width: 250px;
+	margin-top: 50px;
+	margin-left: 150px;
 }
 
 .tab-button {
@@ -51,7 +53,6 @@ div.bubble:after
 
 #tabs {
 	margin: 0 auto;
-	margin-top: 10%;
 	text-align: center;
 	width: 60%;
 	background-color: rgba(255, 255, 255, 0.95);
@@ -60,3 +61,21 @@ div.bubble:after
 .cute {
 	max-width: 50%;
 }
+
+.header-content {
+	position: relative;
+	width: 40%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#clock {
+	position: absolute;
+	top: 5px;
+	right: 20px;
+	background-color: rgba(255, 255, 255, 0.95);
+	width: 75px;
+	height: 50px;
+	text-align: center;
+}
+
