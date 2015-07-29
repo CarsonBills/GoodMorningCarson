@@ -42,6 +42,9 @@ div.bubble:after
 }
 
 .mascot {
-	display: inline-block;
 	max-width: 250px;
+}
+
+.tab-button {
+	cursor: pointer;
 }
