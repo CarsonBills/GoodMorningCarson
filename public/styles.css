@@ -48,3 +48,15 @@ div.bubble:after
 .tab-button {
 	cursor: pointer;
 }
+
+#tabs {
+	margin: 0 auto;
+	margin-top: 10%;
+	text-align: center;
+	width: 60%;
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+.cute {
+	max-width: 50%;
+}
