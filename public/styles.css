@@ -59,7 +59,8 @@ div.bubble:after
 
 .tab-buttons {
 	background-color: rgba(255, 255, 255, 0.8);
-	margin-bottom: 30px;
+	width: 80%;
+	margin: 0 auto 30px auto;
 }
 
 
@@ -86,7 +87,7 @@ div.bubble:after
 }
 
 #cute-image {
-	max-width: 500px;
+	max-width: 90%;
 }
 
 .weather-title {
@@ -99,7 +100,7 @@ div.bubble:after
 	width: 230px;
 }
 
-@media screen and (max-width: 626px) {
+@media screen and (max-width: 707px) {
 	#tabs {
 		width: 90%;
 	}
@@ -107,6 +108,12 @@ div.bubble:after
 
 @media screen and (max-width: 423px) {
 	#tabs {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1197px) {
+	.tab-buttons {
 		width: 100%;
 	}
 }
