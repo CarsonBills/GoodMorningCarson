@@ -84,7 +84,7 @@ module.exports = function(app) {
 	});
 
 	app.get("/reddit", function(req, res){
-		request("https://www.reddit.com/r/all.json?limit=5", function(error, redditResponse, redditBody){
+		request("https://www.reddit.com/r/all.json?limit=6", function(error, redditResponse, redditBody){
 			if (!error && redditResponse.statusCode === 200){
 				var redditLinks = JSON.parse(redditBody).data.children;
 				res.send(redditLinks);

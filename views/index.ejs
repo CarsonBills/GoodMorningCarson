@@ -87,7 +87,7 @@
 		<script type="text/ng-template" id="cute.html">
 			<div class="cute">
 				<img id="cute-image" ng-src="{{cuteData.cute.cuteUrl}}"/>
-				<h3>AWWW!!</h3>
+				<h3>LOOK AT IT&apos;S WIDDLE FACE!!</h3>
 			</div>
 		</script>
 
@@ -100,7 +100,8 @@
 
 		<script type="text/ng-template" id="reddit-data.html">
 			<div class="reddit">
-				<div ng-repeat="post in redditData.reddit" class="reddit-post">
+				<h3 class="reddit-title"> Right now, the Internet cares about: </h3>
+				<div ng-repeat="post in redditData.reddit" class="article">
 					<p>{{post.data.title}}</p>
 					<a href="{{post.data.url}}"><img src="/images/reddit-alien.png"></a>
 				</div>
@@ -109,7 +110,8 @@
 
 		<script type="text/ng-template" id="nytimes-data.html">
 			<div class="nytimes">
-				<div ng-repeat="article in nytimesData.nytimes" class="nytimes-article">
+				<h3> The New York Times wants you to think about:</h3>
+				<div ng-repeat="article in nytimesData.nytimes" class="article">
 				<p>{{article[0].title}}</p>
 				<a href="{{article[0].url}}"><img src="/images/nyt-logo.png"></a>
 			</div>
@@ -117,6 +119,7 @@
 
 		<script type="text/ng-template" id="weather-data.html">
 			<div class="weather">
+				<h2> Today&apos;s Weather:</h2>
 				<div class="current">
 					<p><span class="weather-title"> Current Temp:</span> {{weatherData.weather.currentWeather.temp_f}}&deg</p>
 					<p><span class="weather-title"> Feels like:</span> {{weatherData.weather.currentWeather.feelslike_f}}&deg</p>
