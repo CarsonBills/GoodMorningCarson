@@ -55,11 +55,17 @@ div.bubble:after
 	margin: 0 auto;
 	text-align: center;
 	width: 60%;
-	background-color: rgba(255, 255, 255, 0.95);
 }
 
-.cute {
-	max-width: 50%;
+ul {
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 30px;
+}
+
+
+#main-view {
+	padding: 30px 80px 30px 80px;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .header-content {
@@ -77,5 +83,9 @@ div.bubble:after
 	width: 75px;
 	height: 50px;
 	text-align: center;
+}
+
+#cute-image {
+	max-width: 500px;
 }
 
