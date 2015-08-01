@@ -117,19 +117,19 @@
 		<script type="text/ng-template" id="weather-data.html">
 			<div class="weather">
 				<div class="current">
-					<p>Current Temp: {{weatherData.weather.currentWeather.temp_f}}&deg</p>
-					<p>Feels like: {{weatherData.weather.currentWeather.feelslike_f}}&deg</p>
+					<p><span class="weather-title"> Current Temp:</span> {{weatherData.weather.currentWeather.temp_f}}&deg</p>
+					<p><span class="weather-title"> Feels like:</span> {{weatherData.weather.currentWeather.feelslike_f}}&deg</p>
 					<div class="weather-conditions">
 						<img ng-src="{{weatherData.weather.currentWeather.icon_url}}"/>
-						<p>Current Conditions: {{weatherData.weather.currentWeather.weather}}</p>
+						<p><span class="weather-title">Current Conditions:</span> {{weatherData.weather.currentWeather.weather}}</p>
 					</div>
 				</div>
 				<div class="forecast">
-					<p>High: {{weatherData.weather.forecast.simpleforecast.forecastday[0].high.fahrenheit}}&deg</p>
-					<p>Low: {{weatherData.weather.forecast.simpleforecast.forecastday[0].low.fahrenheit}}&deg</p>
-					<p>Conditions: {{weatherData.weather.forecast.simpleforecast.forecastday[0].conditions}}&deg</p>
+					<p><span class="weather-title">High:</span> {{weatherData.weather.forecast.simpleforecast.forecastday[0].high.fahrenheit}}&deg</p>
+					<p><span class="weather-title">Low:</span> {{weatherData.weather.forecast.simpleforecast.forecastday[0].low.fahrenheit}}&deg</p>
+					<p><span class="weather-title">Conditions:</span> {{weatherData.weather.forecast.simpleforecast.forecastday[0].conditions}}&deg</p>
 					<img ng-src="{{weatherData.weather.forecast.txt_forecast.forecastday[0].icon_url}}"/>
-					<p>Description: {{weatherData.weather.forecast.txt_forecast.forecastday[0].fcttext}}</p>
+					<p><span class="weather-title">Description:</span> {{weatherData.weather.forecast.txt_forecast.forecastday[0].fcttext}}</p>
 				</div>
 			</div>
 		</script>
