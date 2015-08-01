@@ -10,7 +10,7 @@ module.exports = function(app) {
 	dotenv.load();
 
 	app.get("/", function(req, res){
-		res.render("index", {title: "Good Morning Carson", header: "Good Morning Carson."});
+		res.render("index", {title: "Good Morning Carson", header: "Good Morning Carson!"});
 	});
 
 	app.get("/poem", function(req, res){
