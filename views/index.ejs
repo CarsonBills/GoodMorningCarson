@@ -50,11 +50,11 @@
 
 
 			<div id="tabs" ng-controller="TabsCtrl">
-			 	<ul>
+			 	<h3 class="tab-buttons">
 	        <div class="tab-button" ng-repeat="tab in tabs" 
 	        	ng-click="onClickTab(tab)">{{tab.title}}
 	        </div>
-	      </ul>
+	      </h3>
 
 				<div id="main-view">
 					<div ng-include="currentTab">
@@ -87,6 +87,7 @@
 		<script type="text/ng-template" id="cute.html">
 			<div class="cute">
 				<img id="cute-image" ng-src="{{cuteData.cute.cuteUrl}}"/>
+				<h3>AWWW!!</h3>
 			</div>
 		</script>
 
