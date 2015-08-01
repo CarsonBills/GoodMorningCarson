@@ -10,7 +10,14 @@ module.exports = function(app) {
 	dotenv.load();
 
 	app.get("/", function(req, res){
-		res.render("index", {title: "Good Morning Carson", header: "Good Morning Carson!"});
+		var now = new Date();
+		if (now.getHours() <= 11){
+			res.render("index", {header: "Good Morning Carson!"});
+		} else if (now.getHours() <= 17) {
+			res.render("index", {header: "Good Afternoon Carson!"});
+		} else {
+			res.render("index", {header: "Good Evening Carson!"});
+		}
 	});
 
 	app.get("/poem", function(req, res){

@@ -36,8 +36,8 @@ div.bubble:after
 	content: ' ';
 	position: absolute;
 	right: -37px;
-	top: 55px;
-	border: 30px solid;
+	top: 71px;
+	border: 22px solid;
 	border-color: transparent transparent #fff #fff;
 }
 
