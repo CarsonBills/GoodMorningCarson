@@ -87,7 +87,7 @@ div.bubble:after
 }
 
 #cute-image {
-	max-width: 90%;
+	max-width: 95%;
 }
 
 .weather-title {
@@ -98,6 +98,12 @@ div.bubble:after
 	margin-top: 35px;
 	display: inline-block;
 	width: 230px;
+}
+
+.loading {
+	position: absolute;
+	top: 190px;
+	left: 40%;
 }
 
 @media screen and (max-width: 707px) {
