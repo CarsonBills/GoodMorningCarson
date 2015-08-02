@@ -1,0 +1,30 @@
+{
+  "name": "GoodMorningCarson",
+  "version": "1.0.0",
+  "description": "Data aggregator and personal dashboard",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "dotenv": "^1.2.0",
+    "ejs": "^2.3.3",
+    "express": "^4.13.1",
+    "moment": "^2.10.3",
+    "request": "^2.58.0",
+    "xml2js": "^0.4.9",
+    "node-env-file": "^0.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarsonBills/GoodMorningCarson.git"
+  },
+  "author": "Carson Bills",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarsonBills/GoodMorningCarson/issues"
+  },
+  "homepage": "https://github.com/CarsonBills/GoodMorningCarson"
+}
