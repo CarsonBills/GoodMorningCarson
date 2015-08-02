@@ -7,13 +7,13 @@ module.exports = function(app) {
 	var parser = new xml2js.Parser();
 	var today = new Object();
 	// var dotenv = require("dotenv");
-	// dotenv.load();
+	// dotenv.load();  Commented out for production
 
 	app.get("/", function(req, res){
 		var now = new Date();
-		if (now.getHours() <= 11){
+		if (now.getUTCHours() >= 4 && now.getUTCHours() <= 15){
 			res.render("index", {header: "Good Morning Carson!"});
-		} else if (now.getHours() <= 17) {
+		} else if (now.getUTCHours() <= 21) {
 			res.render("index", {header: "Good Afternoon Carson!"});
 		} else {
 			res.render("index", {header: "Good Evening Carson!"});
