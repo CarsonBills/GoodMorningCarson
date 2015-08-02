@@ -6,8 +6,8 @@ module.exports = function(app) {
 	var xml2js = require('xml2js');
 	var parser = new xml2js.Parser();
 	var today = new Object();
-	var dotenv = require("dotenv");
-	dotenv.load();
+	// var dotenv = require("dotenv");
+	// dotenv.load();
 
 	app.get("/", function(req, res){
 		var now = new Date();
