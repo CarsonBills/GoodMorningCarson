@@ -13,7 +13,7 @@ module.exports = function(app) {
 		var now = new Date();
 		if (now.getUTCHours() >= 4 && now.getUTCHours() <= 15){
 			res.render("index", {header: "Good Morning Carson!"});
-		} else if (now.getUTCHours() <= 21) {
+		} else if (now.getUTCHours() > 15 && now.getUTCHours() <= 21) {
 			res.render("index", {header: "Good Afternoon Carson!"});
 		} else {
 			res.render("index", {header: "Good Evening Carson!"});
